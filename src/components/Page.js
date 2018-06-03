@@ -6,11 +6,11 @@ export default class Page extends Component {
 	}
 	render() {
 		const { year, photos } = this.props
-		return <div>
+		return <div className='ib page'>
 			<div>
-				<button onClick={::this.onYearBtnClick}>2018</button>
-				<button onClick={::this.onYearBtnClick}>2017</button>
-				<button onClick={::this.onYearBtnClick}>2016</button>
+				<button className='btn' onClick={::this.onYearBtnClick}>2018</button>
+				<button className='btn' onClick={::this.onYearBtnClick}>2017</button>
+				<button className='btn' onClick={::this.onYearBtnClick}>2016</button>
 			</div>
 			<h3>{year} year</h3>
 			<p>You have {photos.length} photos</p>
