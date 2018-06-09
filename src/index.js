@@ -1,18 +1,24 @@
 import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
-import { Provider } from 'react-redux'
 import App from './containers/App'
-import './styles/app.css'
-import configureStore from './store/configureStore'
+import Admin from './components/Admin'
+import Home from './components/Home'
+import Genre from './components/Genre'
+import NotFound from './components/NotFound'
+import List from './components/List'
 
-const store = configureStore()
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 render(
-	<Provider store={store}>
-		<div className="app">
-			<App />
-		</div>
-	</Provider>,
+	<Router history={browserHistory}>
+		<Route path='/' component={App}>
+			<IndexRoute component={Home} />
+			<Route path='admin' component={Admin} />
+			<Route path='genre/:genre' component={Genre} />
+			<Route path='list' component={List} />
+		</Route>
+		<Route path='*' component={NotFound} />
+	</Router>,
 	document.getElementById('root')
 ) 
